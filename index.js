@@ -145,8 +145,9 @@ client.on('message', async (message) => {
 
         // Set typing state.
         chat.sendStateTyping()
+      
 
-        // Query GPT-3 API.
+        /* // Query GPT-3 API.
         axios
             .post('https://api.openai.com/v1/engines/davinci/completions', {
                 prompt: prompt,
@@ -160,7 +161,37 @@ client.on('message', async (message) => {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + process.env.OPENAI_SECRET_KEY,
                 },
+            })*/
+        // Query GPT-3 API.
+
+        axios
+
+            .post('https://api.openai.com/v1/engines/davinci/completions', {
+
+                prompt: prompt,
+
+                temperature: 0.8,
+
+                max_tokens: 100,
+
+                top_p: 1,
+
+                presence_penalty: 0.6,
+
+                stop: '\n',
+
+            }, {
+
+                headers: {
+
+                    'Content-Type': 'application/json',
+
+                    'Authorization': 'Bearer ' + process.env.OPENAI_SECRET_KEY,
+
+                },
+
             })
+        
             .then((response) => {
                 let responseText = response.data.choices[0].text.trim()
                 // Send reply.
