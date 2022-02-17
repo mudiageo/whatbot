@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+console.log('index script running')
+
 const fs = require('fs')
 const axios = require('axios')
 const inquirer = require('inquirer')
