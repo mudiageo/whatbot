@@ -166,7 +166,7 @@ client.on('message', async (message) => {
 
         axios
 
-            .post('https://api.openai.com/v1/engines/davinci/completions', {
+            .post('https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B', {
 
                 prompt: prompt,
 
